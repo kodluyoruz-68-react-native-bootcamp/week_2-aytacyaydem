@@ -23,18 +23,36 @@ function App() {
     ]);
   };
 
-  const onToggle = () => {
-    const newArr = todos.map((todo) => ({
-      ...todo,
-      isDone: !todo.isDone,
-    }));
-    setTodos(newArr);
+  const onToggle = (id) => {
+    // const newArr = todos.map((todo) => {
+    //   console.log(todo)
+    //   if(id === todo.id){
+    //     return ({
+    //       ...todo,
+    //       isDone:!todo.isDone
+    //     })
+    //   }
+    //   return todo;
+    // });
+    // setTodos(newArr);
+
+    // const index = todos.findIndex(todo => todo.id === id)
+    // todos[index].isDone = !todos[index].isDone
+    // setTodos([
+    //   ...todos
+    // ])
+
+    const index = todos.findIndex(todo => todo.id === id)
+    const newArr = [...todos]
+    newArr[index].isDone = !newArr[index].isDone
+    setTodos(newArr)
   };
 
   const onDelete = (id) => {
     setTodos(todos.filter(todo => todo.id !== id))
   } 
 
+  console.log("Tüm Liste: ",todos)
   return (
     <View style={styles.container}>
       <Header counter={todos.length} />

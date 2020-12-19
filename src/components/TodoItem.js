@@ -2,8 +2,9 @@ import React from 'react';
 import {View,Text,StyleSheet, TouchableOpacity} from "react-native"
 
 function TodoItem({data,onToggle,onDelete}) {
+  console.log("Todo Item Data: ",data)
   return (
-    <TouchableOpacity style={styles[`${data.isDone ? "doneContainer":"itemContainer"}`]} onPress={onToggle} onLongPress={() => onDelete(data.id)}>
+    <TouchableOpacity style={styles[`${data.isDone ? "doneContainer":"itemContainer"}`]} onPress={() => onToggle(data.id)} onLongPress={() => onDelete(data.id)}>
       <Text style={styles[`${data.isDone ? "doneText" : "todoText"}`]}>{data.title}</Text>
     </TouchableOpacity>
   );
