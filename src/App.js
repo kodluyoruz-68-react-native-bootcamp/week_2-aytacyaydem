@@ -26,7 +26,7 @@ function App() {
   const onToggle = () => {
     const newArr = todos.map((todo) => ({
       ...todo,
-      isDone: true,
+      isDone: !todo.isDone,
     }));
     setTodos(newArr);
   };
